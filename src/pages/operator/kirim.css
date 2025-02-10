@@ -1,0 +1,105 @@
+.kirim {
+  width: 100%;
+  height: calc(100%-100px);
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+}
+.kirim > form {
+  width: 800px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-inline: 40px;
+  padding-block: 40px;
+  background-color: #3d423c;
+  border-radius: 8px;
+}
+.kirim > form > .inputs {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.kirim > form > .inputs > input,
+.kirim > form > .inputs > select {
+  width: 49%;
+  padding-inline: 8px;
+  height: 60px;
+  padding-block: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+}
+form > option{
+  border: 1px solid #ccc;
+}
+.kirim > form > button {
+  width: 160px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  align-self: end;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  border-radius: 4px;
+}
+.print_container {
+  width: 22cm;
+  height: 13cm;
+  display: flex;
+  flex-direction: column;
+}
+.print_header {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+}
+.print_body {
+  width: 100%;
+  height: calc(100% - 150px);
+  display: flex;
+}
+.body_left {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body_right {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.body_right > p {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.body_right > p > span {
+  text-align: start;
+  display: flex;
+  justify-content: start;
+  width: 60%;
+}
+.print_footer {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 6px;
+  padding-bottom: 6px;
+}
