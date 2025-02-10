@@ -231,39 +231,44 @@ const Inventory = () => {
           <tbody>
             {currentData?.map((item, index) => (
               <tr key={index}>
-                <td>{item.quantity}</td>
-                <td>{item.density}</td>
                 <td>
-                  {params?.brigada?.find((i) => i?._id === item?.brigada)
-                    ?.name || "Неизвестный"}
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Вес:</span> 
+                  {item.quantity} кг
                 </td>
                 <td>
-                  {params?.order?.find((i) => i?._id === item?.order)?.name ||
-                    "Неизвестный"}
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Плотность:</span> 
+                  {item.density}
                 </td>
                 <td>
-                  {params?.responsible?.find(
-                    (i) => i?._id === item?.responsible
-                  )?.name || "Неизвестный"}
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Бригада:</span> 
+                  {params?.brigada?.find((i) => i?._id === item?.brigada)?.name || "Неизвестный"}
                 </td>
                 <td>
-                  {params?.partiya?.find((i) => i?._id === item?.partiya)
-                    ?.name || "Неизвестный"}
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Номер заказа:</span> 
+                  {params?.order?.find((i) => i?._id === item?.order)?.name || "Неизвестный"}
                 </td>
                 <td>
-                  {params?.section?.find((i) => i?._id === item?.section)
-                    ?.name || "Неизвестный"}
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Ответственный:</span> 
+                  {params?.responsible?.find((i) => i?._id === item?.responsible)?.name || "Неизвестный"}
                 </td>
                 <td>
-                  {params?.document?.find((i) => i?._id === item?.document)
-                    ?.name || "Неизвестный"}
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Номер партии:</span> 
+                  {params?.partiya?.find((i) => i?._id === item?.partiya)?.name || "Неизвестный"}
                 </td>
                 <td>
-                  {moment(item.order_date, "DD-MM-YYYY HH:mm").format(
-                    "DD.MM.YYYY"
-                  )}
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Подразделение:</span> 
+                  {params?.section?.find((i) => i?._id === item?.section)?.name || "Неизвестный"}
                 </td>
                 <td>
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Номер документа:</span> 
+                  {params?.document?.find((i) => i?._id === item?.document)?.name || "Неизвестный"}
+                </td>
+                <td>
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Дата заказа:</span> 
+                  {moment(item.order_date, "DD-MM-YYYY HH:mm").format("DD.MM.YYYY")}
+                </td>
+                <td>
+                  <span style={{ fontWeight: "bold", color: "#555" }}>Дата выполнения:</span> 
                   {moment(item.created_date, "YYYY-MM-DD").format("DD.MM.YYYY")}
                 </td>
                 <td>
@@ -282,6 +287,7 @@ const Inventory = () => {
               </tr>
             ))}
           </tbody>
+
         </Table>
         <div className="pagination" style={{ marginTop: "12px" }}>
           <Pagination

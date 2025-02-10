@@ -18,6 +18,7 @@ const Home = () => {
         id: "",
     })
     const [isOpen, setIsOpen] = useState(false);
+
     async function createParameter(data) {
         try {
             if (editingParameter.id) {
@@ -31,7 +32,6 @@ const Home = () => {
                         console.log(err);
                     });
             } else {
-
                 await submitParameter({ body: data, path: selectedColumn })
                     .then((res) => {
                         console.log(res);
@@ -54,6 +54,7 @@ const Home = () => {
             return;
         }
     }
+
     const columns = ["order", "brigada", "partiya", "section", "responsible", "document"];
     const columnNames = {
         "order": "Hoмep заказа",
@@ -63,6 +64,7 @@ const Home = () => {
         "responsible": "Ответственный",
         "document": "Номер документа"
     };
+
     const maxLength = Math.max(
         parameters.brigada?.length || 0,
         parameters.partiya?.length || 0,
@@ -79,22 +81,23 @@ const Home = () => {
                 path: column,
                 name: item.name,
                 id: item._id,
-            })
+            });
             reset({ name: item.name });
             setIsOpen(true);
         }
     };
+
     return (
         <div className='page'>
             <Modal
                 style={{ display: "flex", flexDirection: "column", gap: "12px" }}
-                onCancel={() => { setIsOpen(false), reset() }}
+                onCancel={() => { setIsOpen(false); reset(); }}
                 title="Добавить новый параметр"
-                footer={[]}
+                footer={null}
                 open={isOpen}
             >
                 <form autoComplete='off' style={{ display: "flex", flexDirection: "column", gap: "12px" }} onSubmit={handleSubmit(createParameter)}>
-                    <input style={{ height: "40px", borderRadius: "4px", paddingInline: "6px", border: "1px solid #ccc" }} type="text" {...register("name")} />
+                    <input style={{ height: "40px", borderRadius: "4px", padding: "0 6px", border: "1px solid #ccc" }} type="text" {...register("name")} />
                     <button style={{ height: "40px", borderRadius: "4px", textAlign: "center", background: "#26944a", border: "none", color: "#fff" }}>
                         Отправить
                     </button>
@@ -132,7 +135,11 @@ const Home = () => {
                         <tr key={index}>
                             {columns.map((col) => (
                                 <td onDoubleClick={() => handleDoubleClick(col, index)} key={col}>
-                                    {parameters[col] && parameters[col][index] ? parameters[col][index].name || parameters[col][index].number : ''}
+                                    {parameters[col] && parameters[col][index] ? (
+                                        <div>
+                                            <span className="parameter-label">{columnNames[col]}:</span> {parameters[col][index].name || parameters[col][index].number}
+                                        </div>
+                                    ) : ''}
                                 </td>
                             ))}
                         </tr>

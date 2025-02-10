@@ -1,11 +1,12 @@
-/* Общий контейнер страницы */
+/* 🌍 Общий контейнер */
 .page {
   width: 100%;
   padding: 20px;
   overflow-x: auto;
+  background: #f8f9fa;
 }
 
-/* Заголовок и кнопки */
+/* 📌 Заголовок и кнопки */
 .page_header {
   display: flex;
   justify-content: space-between;
@@ -17,43 +18,73 @@
 .page_header h1 {
   font-size: 24px;
   margin: 0;
+  font-weight: 700;
+  color: #222;
 }
 
-/* Таблица */
+/* 📊 Контейнер таблицы */
 .table-container {
   width: 100%;
   overflow-x: auto;
-  /* Добавляет горизонтальную прокрутку */
+  border-radius: 12px;
 }
 
+/* 📋 Таблица */
 table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
+/* 🎨 Заголовки таблицы */
 thead {
-  background-color: #3fa26029;
-  color: #222222;
+  background: linear-gradient(90deg, #26944a 0%, #1f7a3a 100%);
+  color: white;
 }
 
 th,
 td {
-  padding: 10px;
+  padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
+/* 🟩 Чередование цветов строк */
+tbody tr:nth-child(even) {
+  background: #f2f7f2;
+}
+
+/* 🟢 Hover-эффект */
+tbody tr:hover {
+  background: #e1f5e1;
+  transition: background 0.3s;
+}
+
+/* 🔳 Поля ввода */
 td input,
 td select {
   width: 100%;
-  padding: 5px;
+  padding: 6px;
   font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  transition: border-color 0.3s;
 }
 
-/* 📱 Адаптация для мобильных устройств */
+/* 🎯 Эффект при фокусе */
+td input:focus,
+td select:focus {
+  border-color: #26944a;
+  outline: none;
+  box-shadow: 0 0 5px rgba(38, 148, 74, 0.3);
+}
+
+/* 📱 Мобильная адаптация */
 @media (max-width: 768px) {
   .page {
-    padding: 10px;
+    padding: 12px;
   }
 
   .page_header {
@@ -71,7 +102,7 @@ td select {
     white-space: nowrap;
   }
 
-  /* Скрываем некоторые столбцы для узких экранов */
+  /* ❌ Скрываем ненужные столбцы на мобильных */
   th:nth-child(3),
   td:nth-child(3),
   /* Бригада */
@@ -82,12 +113,15 @@ td select {
   td:nth-child(7),
   /* Подразделение */
   th:nth-child(8),
-  td:nth-child(8) {
+  td:nth-child(8)
+
+  /* Номер документа */
+    {
     display: none;
   }
 }
 
-/* 📱 Полная адаптация для очень маленьких экранов */
+/* 📱 Полная адаптация для маленьких экранов */
 @media (max-width: 600px) {
   .table-container {
     display: flex;
@@ -104,27 +138,29 @@ td select {
     gap: 10px;
   }
 
-tr {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border: 1px solid #26944a;
-  border-radius: 8px;
-  /* Светлый фон с легким зеленым оттенком */
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
-  /* Легкая тень для объема */
-}
+  /* 🟩 Карточный стиль для строк */
+  tr {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #26944a;
+    border-radius: 8px;
+    background: #f2f7f2;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+  }
 
   td {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    text-align: center;
     padding: 8px;
     border: none;
-    color: #222222;
     font-weight: 600;
+    color: #222;
   }
 
-  /* Уменьшаем размеры шрифтов и полей ввода */
+  /* 🔘 Уменьшаем размеры полей ввода */
   td input,
   td select {
     font-size: 12px;
